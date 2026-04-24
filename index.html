@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Space+Grotesk:wght@600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed-dim": "#c1c6d6",
+                        "on-surface": "#e4e2e2",
+                        "on-tertiary-fixed-variant": "#414754",
+                        "primary-fixed": "#cbe6ff",
+                        "secondary-fixed": "#ffdcc0",
+                        "surface-container-low": "#1b1c1c",
+                        "on-tertiary-container": "#e7edfd",
+                        "inverse-primary": "#046494",
+                        "surface-bright": "#393939",
+                        "inverse-surface": "#e4e2e2",
+                        "on-primary-fixed-variant": "#004b71",
+                        "on-error": "#690005",
+                        "primary-fixed-dim": "#8fcdff",
+                        "on-error-container": "#ffdad6",
+                        "on-surface-variant": "#c0c7d0",
+                        "surface-container-highest": "#343535",
+                        "error-container": "#93000a",
+                        "on-secondary-container": "#4c2800",
+                        "error": "#ffb4ab",
+                        "on-primary-container": "#e0efff",
+                        "surface-dim": "#131314",
+                        "tertiary-fixed": "#dde2f3",
+                        "surface-tint": "#8fcdff",
+                        "on-secondary-fixed": "#2d1600",
+                        "secondary-container": "#e08100",
+                        "on-primary-fixed": "#001e30",
+                        "outline": "#8a919a",
+                        "on-tertiary-fixed": "#161c27",
+                        "on-background": "#e4e2e2",
+                        "tertiary-container": "#656b79",
+                        "surface": "#131314",
+                        "on-tertiary": "#2a303d",
+                        "on-primary": "#003450",
+                        "outline-variant": "#40484f",
+                        "inverse-on-surface": "#303031",
+                        "surface-container-high": "#292a2a",
+                        "secondary-fixed-dim": "#ffb875",
+                        "background": "#131314",
+                        "on-secondary": "#4b2800",
+                        "surface-container": "#1f2020",
+                        "primary-container": "#2171a2",
+                        "primary": "#8fcdff",
+                        "on-secondary-fixed-variant": "#6b3b00",
+                        "surface-container-lowest": "#0d0e0e",
+                        "tertiary": "#c1c6d6",
+                        "surface-variant": "#343535",
+                        "secondary": "#ffb875"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "lg": "48px",
+                        "base": "8px",
+                        "gutter": "24px",
+                        "xl": "80px",
+                        "md": "24px",
+                        "xs": "4px",
+                        "sm": "12px",
+                        "margin": "32px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Manrope"],
+                        "body-md": ["Manrope"],
+                        "headline-md": ["Manrope"],
+                        "headline-xl": ["Manrope"],
+                        "headline-lg": ["Manrope"],
+                        "label-caps": ["Space Grotesk"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+        }
+        .ai-glow {
+            box-shadow: 0 0 40px -10px rgba(33, 113, 162, 0.3);
+        }
+        html { scroll-behavior: smooth; }
+        .itcs-alert-success {
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            color: #86efac;
+        }
+        .itcs-alert-error {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            color: #fca5a5;
+        }
+        .itcs-field-invalid input,
+        .itcs-field-invalid select {
+            border-color: rgba(239, 68, 68, 0.6) !important;
+        }
+    </style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '546308681797733');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=546308681797733&ev=PageView&noscript=1"
+  alt=""/></noscript>
+<!-- End Meta Pixel Code -->
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-primary-container selection:text-white">
+<nav class="fixed top-0 w-full z-50 bg-[#242A36]/80 backdrop-blur-xl border-b border-white/10 shadow-xl shadow-blue-900/20">
+<div class="flex justify-between items-center w-full px-8 max-w-7xl mx-auto py-2">
+<div class="text-xl font-extrabold tracking-tighter text-white lowercase font-headline-md"><img alt="itcs² logo" class="w-auto object-contain h-12 md:h-16" src="https://lh3.googleusercontent.com/aida/ADBb0ujbYIPrHzWkHljBwSZTKR7uoBWegnIPahQOh5ob9frOVbWTqbTmFjPmzHyRTXmgIw2b4scZion20SV7XwqQjAqScSctzBKhMP3avWwwmbFL4yl8zR5-TveySQEBgGYcHxlRFLuonvbcAhuRNc-4NNVZwtFxtYqbY-PrGmr4kNkPxlxEB_35OkwQIACflLqdkHt8HyZr67YjZHDh1KGOdNVL2-0nBhJuYVKEGlXGrOlLVvIrJzPWLQFi_1sO3YFV4QJrt_M3c5-g8zg"/></div>
+<div class="flex items-center gap-4">
+<a href="#registro" class="bg-primary-container text-white px-6 py-2 rounded-lg font-manrope text-sm font-bold shadow-lg shadow-blue-900/40 active:scale-95 transform transition-transform cursor-pointer">Registrarse</a>
+</div>
+</div>
+</nav>
+<main class="pt-32">
+<section class="relative flex items-center px-margin max-w-7xl mx-auto overflow-hidden mb-xl mt-8">
+<div class="absolute -top-24 -right-24 w-96 h-96 bg-primary-container/20 rounded-full blur-[120px]"></div>
+<div class="absolute bottom-24 -left-24 w-64 h-64 bg-secondary/10 rounded-full blur-[100px]"></div>
+<div class="grid lg:grid-cols-2 gap-md items-center z-10">
+<div class="space-y-md">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-container/10 border border-primary-container/20">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="text-label-caps font-label-caps text-primary uppercase">Webinar Exclusivo LATAM</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-white leading-tight">
+                        El error que está haciendo que las Empresas <span class="text-primary">fracasen con IA</span> (y cómo evitarlo paso a paso)
+                    </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+                        Descubre por qué la mayoría de las implementaciones tecnológicas fallan y cómo las PYMES en Latinoamérica pueden construir un camino seguro hacia la rentabilidad real con IA.
+                    </p>
+<div class="flex flex-wrap gap-md pt-sm">
+<a class="bg-primary-container hover:bg-primary text-white font-headline-md px-lg py-md rounded-xl transition-all shadow-lg shadow-primary-container/20 flex items-center gap-base" href="#registro">
+                            Reservar mi lugar
+                            <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+<div class="flex flex-col justify-center">
+<span class="font-label-caps text-label-caps text-secondary uppercase">Acceso Gratuito</span>
+<span class="text-on-surface-variant text-sm">Cupos limitados para PYMES</span>
+</div>
+</div>
+</div>
+<div class="relative">
+<div class="glass-card rounded-2xl overflow-hidden ai-glow">
+<img alt="AI Visualization" class="w-full aspect-video object-cover opacity-80" data-alt="Futuristic digital neural network with glowing blue data streams and floating geometric shapes in a dark technological environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuClOJ9xE7ZHrFz6uDPYyNXXCK4uiiLG0nEAmLLb_UkuEw7iUMTCxT4eWfxKjByXrFKpx2nikM_-HfqCOHBaw9HDsNXvNwxqejN7vx-EQTCAh5A2Qlonv2h595sLILFESVgAmUy1endQbop68Woequ5taYrm_P67eVESPWK71ZVz-x8effB-sxhZQCthd9IQaipkK27EQFqagGAedVmdf9loVEPBHACA-T5p6bH-vSePiukjR5TVNj9sMpsOTY8xjplV8To-ai2SqZzz"/>
+<div class="p-md bg-gradient-to-t from-surface-container-highest to-transparent absolute bottom-0 w-full">
+<div class="flex justify-between items-center">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full border-2 border-surface bg-slate-400"></div>
+<div class="w-8 h-8 rounded-full border-2 border-surface bg-slate-500"></div>
+<div class="w-8 h-8 rounded-full border-2 border-surface bg-slate-600"></div>
+</div>
+<span class="text-xs font-label-caps text-on-surface-variant">+450 registrados hoy</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="px-margin max-w-7xl mx-auto">
+<div class="text-center mb-lg space-y-xs">
+<h2 class="font-headline-lg text-headline-lg text-white">¿Por qué la IA es para tu Empresa?</h2>
+<p class="text-on-surface-variant max-w-2xl mx-auto">Tecnología de nivel empresarial ahora accesible para el mercado latinoamericano.</p>
+</div>
+<div class="grid md:grid-cols-3 gap-gutter">
+<div class="glass-card p-lg rounded-xl hover:bg-white/5 transition-all group">
+<div class="w-12 h-12 rounded-lg bg-primary-container/20 flex items-center justify-center mb-md group-hover:bg-primary-container/40 transition-colors">
+<span class="material-symbols-outlined text-primary" data-icon="savings">savings</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-white mb-sm">Ahorro Inteligente</h3>
+<p class="text-on-surface-variant">Reduce costos operativos hasta en un 40% automatizando tareas repetitivas y administrativas.</p>
+</div>
+<div class="glass-card p-lg rounded-xl hover:bg-white/5 transition-all group border-primary-container/30">
+<div class="w-12 h-12 rounded-lg bg-primary-container/20 flex items-center justify-center mb-md group-hover:bg-primary-container/40 transition-colors">
+<span class="material-symbols-outlined text-primary" data-icon="bolt">bolt</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-white mb-sm">Eficiencia Radical</h3>
+<p class="text-on-surface-variant">Ejecuta procesos en segundos que antes tomaban horas. Tu equipo enfocado en lo que importa.</p>
+</div>
+<div class="glass-card p-lg rounded-xl hover:bg-white/5 transition-all group">
+<div class="w-12 h-12 rounded-lg bg-primary-container/20 flex items-center justify-center mb-md group-hover:bg-primary-container/40 transition-colors">
+<span class="material-symbols-outlined text-primary" data-icon="trending_up">trending_up</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-white mb-sm">Crecimiento Ágil</h3>
+<p class="text-on-surface-variant">Escala tu capacidad de atención y ventas sin necesidad de aumentar proporcionalmente tu plantilla.</p>
+</div>
+</div>
+</section>
+<section class="py-xl bg-surface-container-lowest/50">
+<div class="max-w-7xl mx-auto px-margin">
+<div class="grid lg:grid-cols-2 gap-xl items-center">
+<div class="space-y-lg">
+<h2 class="font-headline-lg text-headline-lg text-white">Temario del Webinar</h2>
+<div class="grid gap-gutter">
+<!-- Item 1 -->
+<div class="flex gap-md glass-card p-md rounded-xl border-white/5 group hover:border-primary/30 transition-all">
+<div class="flex-none w-10 h-10 rounded-lg bg-primary-container/20 text-primary flex items-center justify-center font-bold text-lg">
+                                    ❌
+                                </div>
+<div>
+<h4 class="font-headline-md text-white text-lg mb-xs">Por qué el 80% de las empresas fracasa con la IA</h4>
+<p class="text-on-surface-variant text-sm">Y cómo evitar los errores más costosos antes de invertir un solo peso.</p>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="flex gap-md glass-card p-md rounded-xl border-white/5 group hover:border-primary/30 transition-all">
+<div class="flex-none w-10 h-10 rounded-lg bg-primary-container/20 text-primary flex items-center justify-center font-bold text-lg">
+                                    🏗️
+                                </div>
+<div>
+<h4 class="font-headline-md text-white text-lg mb-xs">El framework de las 3 capas</h4>
+<p class="text-on-surface-variant text-sm">Integración → Automatización → Inteligencia Artificial. El orden correcto que nadie te explica.</p>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="flex gap-md glass-card p-md rounded-xl border-white/5 group hover:border-primary/30 transition-all">
+<div class="flex-none w-10 h-10 rounded-lg bg-primary-container/20 text-primary flex items-center justify-center font-bold text-lg">
+                                    ⚡
+                                </div>
+<div>
+<h4 class="font-headline-md text-white text-lg mb-xs">Ejemplos reales aplicados a tu empresa</h4>
+<p class="text-on-surface-variant text-sm">Casos concretos de automatización, integración de sistemas e IA en empresas medianas de LATAM — con resultados medibles.</p>
+</div>
+</div>
+<!-- Item 4 -->
+<div class="flex gap-md glass-card p-md rounded-xl border-white/5 group hover:border-primary/30 transition-all">
+<div class="flex-none w-10 h-10 rounded-lg bg-primary-container/20 text-primary flex items-center justify-center font-bold text-lg">
+                                    🗺️
+                                </div>
+<div>
+<h4 class="font-headline-md text-white text-lg mb-xs">El proceso de adopción paso a paso</h4>
+<p class="text-on-surface-variant text-sm">Cómo pasar de cero a IA activa en 90 días, con metodología probada y sin depender de tecnología que no entiendes.</p>
+</div>
+</div>
+<!-- Item 5 -->
+<div class="flex gap-md glass-card p-md rounded-xl border-white/5 group hover:border-primary/30 transition-all">
+<div class="flex-none w-10 h-10 rounded-lg bg-primary-container/20 text-primary flex items-center justify-center font-bold text-lg">
+                                    🎯
+                                </div>
+<div>
+<h4 class="font-headline-md text-white text-lg mb-xs">Estrategia: por dónde empieza TU empresa</h4>
+<p class="text-on-surface-variant text-sm">Un diagnóstico en vivo para identificar tu nivel real de madurez digital y tu próximo paso concreto.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="relative group hidden lg:block">
+<div class="absolute inset-0 bg-primary/20 blur-[60px] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<img alt="Technology Team" class="rounded-xl object-cover glass-card relative h-[600px] w-full" data-alt="Professional multi-ethnic team working in a modern high-tech office with neon blue ambient lighting and multiple screens showing data dashboards" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzTOI5PQDtYeRG3ceHnr9GT0rYzz0tLifxtKsL96-6AfOAWcdnS7pyjtaNuW0pgHAw8cn9VSCM03307N7qayYG_tR7u48xmwIyAKAX-L0yIk8M0Ege3VUeT_tr9bcqOEqawGk8E9ErwM7amkQNh44YMm6VnzdqYtbQ4wb8JCtaJruEIPCeftIkBcADDJH9wxZg_ZZVLErEUzJSzSEa12-B9z-gSWOBFfuMoR4Ues-e2R0rGVW9N3fn-Ci3Mt4i6gg4dfE6ANhd2LMk"/>
+</div>
+</div>
+</div>
+</section>
+<section class="py-xl px-margin max-w-7xl mx-auto">
+<div class="glass-card rounded-2xl p-lg md:p-xl grid md:grid-cols-[1fr_2fr] gap-lg items-center">
+<div class="relative aspect-square max-w-[300px] mx-auto md:mx-0">
+<img alt="Juan Carlos Neira" class="rounded-xl object-cover w-full h-full" data-alt="Professional studio headshot of Juan Carlos Neira in a dark suit and tie, consistent with the tech executive aesthetic." src="https://lh3.googleusercontent.com/aida/ADBb0ujKO2ixaxJ4K41ENU8EUaaWDRyjuozXildDf7EJzyidADEcplWzrVw1zKjhbWXqM-V4_I6S_xNYdvZSRFZTveeqT1cWHISlrxQPBBQqzoDOtoCZ2R0noKBIQE0OykPM90enQHq0y1f8-HHX3zagUYJyyUTuK7J0gTQ9O-sNE5ZeGrviK-ySpPSAGok-b-VohxQP2HKi4l6Ih_do8UDrJcrfT8pT6plpIU8njGd5MoE52OfHDjbSOZfr74cv"/>
+<div class="absolute -bottom-4 -right-4 bg-secondary-container p-3 rounded-lg shadow-lg">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+</div>
+</div>
+<div class="space-y-sm">
+<span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest">Conoce a tu Mentor</span>
+<h2 class="font-headline-lg text-headline-lg text-white">Juan Carlos Neira</h2>
+<p class="text-body-lg text-on-surface font-semibold text-primary">Gerente de Transformación Digital - Socio Itcs2</p>
+<p class="text-body-md text-on-surface-variant">Con más de 15 años de experiencia liderando la digitalización de empresas en toda América Latina, Juan ha ayudado a más de 200 empresas a implementar proyectos de tecnología y actualmente a diseñar procesos de automatización, integracion e inteligencia artificial que han redefinido sus modelos de negocio.</p>
+</div>
+</div>
+</section>
+<section class="py-xl px-margin" id="registro">
+<div class="max-w-3xl mx-auto glass-card rounded-2xl p-lg md:p-xl relative overflow-hidden ai-glow">
+<div class="absolute top-0 right-0 p-lg opacity-10">
+<span class="material-symbols-outlined text-[120px]" data-icon="event_available">event_available</span>
+</div>
+<div class="relative z-10 text-center mb-lg">
+<h2 class="font-headline-lg text-headline-lg text-white">Asegura tu Acceso Gratuito</h2>
+<p class="text-on-surface-variant">Completa tus datos para recibir el enlace directo al webinar.</p>
+</div>
+<div id="itcs-alert" class="hidden relative z-10 mb-md p-md rounded-xl text-sm font-semibold"></div>
+<form id="itcs-form" class="space-y-md relative z-10" novalidate="">
+<div class="grid md:grid-cols-2 gap-md">
+<div class="space-y-xs" data-field="nombre">
+<label class="text-xs font-label-caps text-slate-400 uppercase" for="itcs-nombre">Nombre Completo</label>
+<input id="itcs-nombre" name="nombre" required="" autocomplete="name" class="w-full bg-surface-container-high border-b-2 border-white/10 focus:border-primary-container text-white p-sm outline-none transition-all" placeholder="Ej. Juan Pérez" type="text"/>
+<p class="itcs-field-error hidden text-xs text-red-400 mt-xs">Por favor escribe tu nombre completo.</p>
+</div>
+<div class="space-y-xs" data-field="email">
+<label class="text-xs font-label-caps text-slate-400 uppercase" for="itcs-email">Email Corporativo</label>
+<input id="itcs-email" name="email" required="" autocomplete="email" class="w-full bg-surface-container-high border-b-2 border-white/10 focus:border-primary-container text-white p-sm outline-none transition-all" placeholder="juan@empresa.com" type="email"/>
+<p class="itcs-field-error hidden text-xs text-red-400 mt-xs">Ingresa un correo electrónico válido.</p>
+</div>
+</div>
+<div class="space-y-xs" data-field="tamano_empresa">
+<label class="text-xs font-label-caps text-slate-400 uppercase" for="itcs-tamano">Tamaño de la Empresa</label>
+<select id="itcs-tamano" name="tamano_empresa" class="w-full bg-surface-container-high border-b-2 border-white/10 focus:border-primary-container text-white p-sm outline-none transition-all appearance-none">
+<option value="1-10">1-10 empleados</option>
+<option value="11-50">11-50 empleados</option>
+<option value="51-200">51-200 empleados</option>
+<option value="200+">Más de 200</option>
+</select>
+</div>
+<button id="itcs-submit" class="w-full bg-primary-container hover:bg-primary text-white font-headline-md py-md rounded-xl transition-all shadow-lg shadow-primary-container/20 mt-lg disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-sm" type="submit">
+<span class="itcs-submit-label">Registrarme Ahora</span>
+<span class="itcs-submit-spinner hidden w-5 h-5 border-2 border-white/40 border-t-white rounded-full animate-spin"></span>
+</button>
+<p class="text-center text-[10px] text-slate-500 uppercase tracking-tighter">
+                        Al registrarte aceptas recibir información del evento y el tratamiento de tus datos conforme a la Ley 1581 de 2012. Esta página utiliza cookies de Meta Pixel para medición publicitaria.
+                    </p>
+</form>
+</div>
+</section>
+</main>
+<footer class="bg-[#242A36] w-full py-12 border-t border-white/5 mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-center px-12 max-w-7xl mx-auto gap-6">
+<div class="text-lg font-bold text-[#2171A2] font-headline-md"><img alt="itcs² logo" class="h-10 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ADBb0ujbYIPrHzWkHljBwSZTKR7uoBWegnIPahQOh5ob9frOVbWTqbTmFjPmzHyRTXmgIw2b4scZion20SV7XwqQjAqScSctzBKhMP3avWwwmbFL4yl8zR5-TveySQEBgGYcHxlRFLuonvbcAhuRNc-4NNVZwtFxtYqbY-PrGmr4kNkPxlxEB_35OkwQIACflLqdkHt8HyZr67YjZHDh1KGOdNVL2-0nBhJuYVKEGlXGrOlLVvIrJzPWLQFi_1sO3YFV4QJrt_M3c5-g8zg"/></div>
+<p class="font-manrope text-xs text-slate-500 text-center md:text-left">© 2024 itcs². Transformación Digital para PyMEs en LATAM.</p>
+<div class="flex gap-lg">
+<a class="text-slate-500 hover:text-[#2171A2] transition-colors hover:underline decoration-[#2171A2] underline-offset-4 font-manrope text-xs" href="#">Privacidad</a>
+<a class="text-slate-500 hover:text-[#2171A2] transition-colors hover:underline decoration-[#2171A2] underline-offset-4 font-manrope text-xs" href="#">Términos</a>
+<a class="text-slate-500 hover:text-[#2171A2] transition-colors hover:underline decoration-[#2171A2] underline-offset-4 font-manrope text-xs" href="#">Contacto</a>
+<a class="text-slate-500 hover:text-[#2171A2] transition-colors hover:underline decoration-[#2171A2] underline-offset-4 font-manrope text-xs" href="#">Soporte</a>
+</div>
+</div>
+</footer>
+<!-- AI Assistant Module -->
+<div class="fixed bottom-base right-base z-40">
+<div class="glass-card p-4 rounded-full flex items-center gap-sm shadow-2xl border-primary-container/50 ai-glow">
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center animate-pulse">
+<span class="material-symbols-outlined text-white text-sm" data-icon="smart_toy" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+</div>
+<span class="text-xs font-label-caps text-white hidden md:block">¿Tienes dudas? Consulta a itcs² AI</span>
+</div>
+</div>
+<!-- ============================================================
+     SCRIPT DE REGISTRO — captura de leads + redirección WhatsApp
+     ============================================================ -->
+<script>
+(function () {
+  // 🔧 CONFIGURACIÓN
+  const API_URL = 'https://api.itcs2.com/api/leads';
+  // Fallback si la API cae — redirige directo al grupo igualmente
+  const WHATSAPP_FALLBACK_URL = 'https://chat.whatsapp.com/F1ch3bG6c8N9htWATwlgaX?mode=gi_t';
+
+  const form        = document.getElementById('itcs-form');
+  const alertBox    = document.getElementById('itcs-alert');
+  const submitBtn   = document.getElementById('itcs-submit');
+  const btnLabel    = submitBtn.querySelector('.itcs-submit-label');
+  const btnSpinner  = submitBtn.querySelector('.itcs-submit-spinner');
+  const inputNombre = document.getElementById('itcs-nombre');
+  const inputEmail  = document.getElementById('itcs-email');
+  const inputTamano = document.getElementById('itcs-tamano');
+
+  // Captura UTMs desde la URL (para tracking de campañas)
+  const qs = new URLSearchParams(window.location.search);
+  const utms = {
+    utm_source:   qs.get('utm_source')   || '',
+    utm_medium:   qs.get('utm_medium')   || '',
+    utm_campaign: qs.get('utm_campaign') || '',
+  };
+
+  function showAlert(type, msg) {
+    alertBox.className = 'relative z-10 mb-md p-md rounded-xl text-sm font-semibold itcs-alert-' + type;
+    alertBox.textContent = msg;
+  }
+  function hideAlert() {
+    alertBox.className = 'hidden';
+    alertBox.textContent = '';
+  }
+  function clearFieldErrors() {
+    form.querySelectorAll('[data-field]').forEach(f => f.classList.remove('itcs-field-invalid'));
+    form.querySelectorAll('.itcs-field-error').forEach(e => e.classList.add('hidden'));
+  }
+  function markFieldError(name) {
+    const field = form.querySelector('[data-field="' + name + '"]');
+    if (!field) return;
+    field.classList.add('itcs-field-invalid');
+    const errEl = field.querySelector('.itcs-field-error');
+    if (errEl) errEl.classList.remove('hidden');
+  }
+  function setLoading(isLoading) {
+    submitBtn.disabled = isLoading;
+    if (isLoading) {
+      btnLabel.textContent = 'Enviando...';
+      btnSpinner.classList.remove('hidden');
+    } else {
+      btnLabel.textContent = 'Registrarme Ahora';
+      btnSpinner.classList.add('hidden');
+    }
+  }
+
+  function validate() {
+    clearFieldErrors();
+    let ok = true;
+
+    if (inputNombre.value.trim().length < 2) {
+      markFieldError('nombre');
+      ok = false;
+    }
+    const emailRE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+    if (!emailRE.test(inputEmail.value.trim())) {
+      markFieldError('email');
+      ok = false;
+    }
+    return ok;
+  }
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    hideAlert();
+
+    if (!validate()) {
+      showAlert('error', 'Revisa los campos marcados en rojo.');
+      return;
+    }
+
+    setLoading(true);
+
+    // event_id único para deduplicar Pixel ↔ Conversions API (cuando la tengas)
+    const eventId = 'lead_' + Date.now() + '_' + Math.random().toString(36).slice(2, 10);
+
+    const payload = {
+      nombre: inputNombre.value.trim(),
+      email:  inputEmail.value.trim(),
+      tamano_empresa: inputTamano.value,
+      utm_source:   utms.utm_source,
+      utm_medium:   utms.utm_medium,
+      utm_campaign: utms.utm_campaign,
+      event_id: eventId,
+      event_source_url: window.location.href,
+    };
+
+    try {
+      const res = await fetch(API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      const data = await res.json().catch(() => ({}));
+
+      if (!res.ok || !data.ok) {
+        throw new Error(data.error || 'No pudimos registrar tus datos.');
+      }
+
+      // 🎯 Meta Pixel — evento Lead (optimización de conversión)
+      if (typeof fbq === 'function') {
+        fbq('track', 'Lead', {
+          content_name: 'Webinar IA & PYMES',
+          content_category: 'webinar',
+          value: 0,
+          currency: 'COP',
+        }, { eventID: eventId });
+      }
+
+      showAlert('success', '¡Registro exitoso! Te estamos redirigiendo al grupo de WhatsApp...');
+      btnLabel.textContent = '✓ Registrado';
+
+      const redirectUrl = data.whatsapp_url || WHATSAPP_FALLBACK_URL;
+      setTimeout(function () {
+        // 🎯 Meta Pixel — evento CompleteRegistration justo antes de redirigir
+        if (typeof fbq === 'function') {
+          fbq('track', 'CompleteRegistration', {
+            content_name: 'Webinar IA & PYMES',
+            status: true,
+          });
+        }
+        window.location.href = redirectUrl;
+      }, 1400);
+
+    } catch (err) {
+      console.error('[itcs-form]', err);
+      showAlert('error', (err && err.message) || 'Ocurrió un error. Intenta de nuevo en unos segundos.');
+      setLoading(false);
+    }
+  });
+
+  // Limpiar error visual cuando el usuario empieza a escribir de nuevo
+  [inputNombre, inputEmail].forEach(function (inp) {
+    inp.addEventListener('input', function () {
+      const field = inp.closest('[data-field]');
+      if (field) {
+        field.classList.remove('itcs-field-invalid');
+        const errEl = field.querySelector('.itcs-field-error');
+        if (errEl) errEl.classList.add('hidden');
+      }
+    });
+  });
+})();
+</script>
+</body></html>
