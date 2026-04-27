@@ -192,20 +192,8 @@ fbq('track', 'PageView');
 </div>
 </div>
 <div class="relative group hidden lg:block">
-<div style="border-radius:12px;overflow:hidden;height:600px;background:linear-gradient(135deg,#0d1b2a 0%,#1a2f4a 40%,#0d2137 70%,#0a1628 100%);display:flex;align-items:center;justify-content:center;position:relative;">
-  <div style="position:absolute;inset:0;background:radial-gradient(circle at 30% 50%,rgba(33,113,162,0.25) 0%,transparent 60%),radial-gradient(circle at 80% 20%,rgba(143,205,255,0.08) 0%,transparent 50%);"></div>
-  <div style="position:relative;z-index:1;text-align:center;padding:40px;">
-    <div style="font-size:80px;margin-bottom:20px;opacity:0.6;">🤖</div>
-    <p style="font-family:Space Grotesk,sans-serif;font-size:13px;letter-spacing:0.15em;text-transform:uppercase;color:#8fcdff;opacity:0.8;">IA & Transformación Digital</p>
-    <p style="font-family:Manrope,sans-serif;font-size:22px;font-weight:700;color:#e4e2e2;margin-top:8px;line-height:1.3;">Automatiza · Integra · Escala</p>
-    <div style="margin-top:24px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
-      <span style="background:rgba(33,113,162,0.2);border:1px solid rgba(143,205,255,0.2);border-radius:20px;padding:6px 16px;font-size:12px;color:#8fcdff;">n8n</span>
-      <span style="background:rgba(33,113,162,0.2);border:1px solid rgba(143,205,255,0.2);border-radius:20px;padding:6px 16px;font-size:12px;color:#8fcdff;">OpenAI</span>
-      <span style="background:rgba(33,113,162,0.2);border:1px solid rgba(143,205,255,0.2);border-radius:20px;padding:6px 16px;font-size:12px;color:#8fcdff;">WhatsApp API</span>
-      <span style="background:rgba(33,113,162,0.2);border:1px solid rgba(143,205,255,0.2);border-radius:20px;padding:6px 16px;font-size:12px;color:#8fcdff;">PostgreSQL</span>
-    </div>
-  </div>
-</div>
+<div class="absolute inset-0 bg-primary/20 blur-[60px] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<img alt="Technology Team" class="rounded-xl object-cover glass-card relative h-[600px] w-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzTOI5PQDtYeRG3ceHnr9GT0rYzz0tLifxtKsL96-6AfOAWcdnS7pyjtaNuW0pgHAw8cn9VSCM03307N7qayYG_tR7u48xmwIyAKAX-L0yIk8M0Ege3VUeT_tr9bcqOEqawGk8E9ErwM7amkQNh44YMm6VnzdqYtbQ4wb8JCtaJruEIPCeftIkBcADDJH9wxZg_ZZVLErEUzJSzSEa12-B9z-gSWOBFfuMoR4Ues-e2R0rGVW9N3fn-Ci3Mt4i6gg4dfE6ANhd2LMk"/>
 </div>
 </div>
 </div>
@@ -224,19 +212,28 @@ fbq('track', 'PageView');
   <!-- Contenido -->
   <div style="position:relative;z-index:1;display:grid;grid-template-columns:1fr 2fr;gap:40px;align-items:center;padding:48px 48px;" class="block-expositor">
 
-    <!-- Foto -->
-    <div style="position:relative;display:flex;justify-content:center;">
-      <!-- Marco decorativo detrás -->
-      <div style="position:absolute;top:12px;left:12px;right:-12px;bottom:-12px;border:2px solid rgba(33,113,162,0.4);border-radius:16px;"></div>
+    <!-- Foto superpuesta sobre imagen corporativa -->
+    <div style="position:relative;width:300px;height:360px;flex-shrink:0;">
+      <!-- Imagen de fondo: señor corporativo con corbata -->
+      <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzTOI5PQDtYeRG3ceHnr9GT0rYzz0tLifxtKsL96-6AfOAWcdnS7pyjtaNuW0pgHAw8cn9VSCM03307N7qayYG_tR7u48xmwIyAKAX-L0yIk8M0Ege3VUeT_tr9bcqOEqawGk8E9ErwM7amkQNh44YMm6VnzdqYtbQ4wb8JCtaJruEIPCeftIkBcADDJH9wxZg_ZZVLErEUzJSzSEa12-B9z-gSWOBFfuMoR4Ues-e2R0rGVW9N3fn-Ci3Mt4i6gg4dfE6ANhd2LMk"
+           alt="Fondo corporativo"
+           style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:16px;filter:brightness(0.55) saturate(0.8);"/>
+      <!-- Gradiente encima del fondo para suavizar -->
+      <div style="position:absolute;inset:0;border-radius:16px;background:linear-gradient(to bottom,rgba(6,14,26,0.2) 0%,rgba(6,14,26,0.0) 40%,rgba(6,14,26,0.5) 100%);"></div>
+      <!-- Tu foto superpuesta, centrada y prominente -->
+      <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
+        <div style="width:200px;height:240px;border-radius:50% 50% 50% 50% / 45% 45% 55% 55%;overflow:hidden;box-shadow:0 0 0 4px rgba(33,113,162,0.6),0 16px 48px rgba(0,0,0,0.7);border:3px solid rgba(255,255,255,0.15);">
+          <img alt="Juan Carlos Neira" src="/img/foto juan.png"
+               style="width:100%;height:100%;object-fit:cover;object-position:center top;"/>
+        </div>
+      </div>
       <!-- Badge premium -->
-      <div style="position:absolute;bottom:-16px;right:-8px;z-index:2;background:#2171a2;border-radius:10px;padding:8px 12px;display:flex;align-items:center;gap:6px;box-shadow:0 8px 24px rgba(33,113,162,0.4);">
-        <span style="font-size:16px;">🏆</span>
+      <div style="position:absolute;bottom:16px;right:16px;z-index:2;background:#2171a2;border-radius:10px;padding:8px 14px;display:flex;align-items:center;gap:6px;box-shadow:0 8px 24px rgba(33,113,162,0.5);">
+        <span style="font-size:15px;">🏆</span>
         <span style="font-size:11px;font-weight:700;color:white;letter-spacing:0.05em;">+15 años</span>
       </div>
-      <!-- Foto -->
-      <div style="border-radius:14px;overflow:hidden;width:260px;height:320px;box-shadow:0 20px 60px rgba(0,0,0,0.5),0 0 0 1px rgba(255,255,255,0.08);">
-        <img alt="Juan Carlos Neira" src="/img/foto juan.png" style="width:100%;height:100%;object-fit:cover;object-position:center top;"/>
-      </div>
+      <!-- Marco decorativo -->
+      <div style="position:absolute;inset:0;border-radius:16px;border:1px solid rgba(33,113,162,0.3);pointer-events:none;"></div>
     </div>
 
     <!-- Bio -->
