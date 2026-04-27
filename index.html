@@ -212,29 +212,20 @@ fbq('track', 'PageView');
   <!-- Contenido -->
   <div style="position:relative;z-index:1;display:grid;grid-template-columns:1fr 2fr;gap:40px;align-items:center;padding:48px 48px;" class="block-expositor">
 
-    <!-- Foto expositor: Juan Carlos sobre fondo corporativo -->
-    <div style="position:relative;width:280px;height:360px;flex-shrink:0;border-radius:16px;overflow:hidden;box-shadow:0 24px 64px rgba(0,0,0,0.6),0 0 0 1px rgba(33,113,162,0.3);">
-      <!-- Imagen corporativa de fondo (señor con corbata, muy difuminada) -->
-      <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzTOI5PQDtYeRG3ceHnr9GT0rYzz0tLifxtKsL96-6AfOAWcdnS7pyjtaNuW0pgHAw8cn9VSCM03307N7qayYG_tR7u48xmwIyAKAX-L0yIk8M0Ege3VUeT_tr9bcqOEqawGk8E9ErwM7amkQNh44YMm6VnzdqYtbQ4wb8JCtaJruEIPCeftIkBcADDJH9wxZg_ZZVLErEUzJSzSEa12-B9z-gSWOBFfuMoR4Ues-e2R0rGVW9N3fn-Ci3Mt4i6gg4dfE6ANhd2LMk"
-           alt=""
-           aria-hidden="true"
-           style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;filter:blur(8px) brightness(0.35) saturate(0.6);transform:scale(1.1);"/>
-      <!-- Gradiente azul oscuro sobre el fondo -->
-      <div style="position:absolute;inset:0;background:linear-gradient(160deg,rgba(6,14,26,0.5) 0%,rgba(17,41,67,0.4) 50%,rgba(6,14,26,0.7) 100%);"></div>
-      <!-- Tu foto: ocupa 85% del ancho, alineada abajo para mostrar cara y torso -->
-      <div style="position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:88%;overflow:hidden;border-radius:12px 12px 0 0;">
-        <img alt="Juan Carlos Neira" src="/img/foto juan.png"
-             style="width:100%;display:block;object-fit:cover;object-position:center top;"/>
+    <!-- Foto expositor: Juan Carlos rellena todo el recuadro -->
+    <div style="position:relative;width:280px;height:380px;flex-shrink:0;border-radius:16px;overflow:hidden;box-shadow:0 24px 64px rgba(0,0,0,0.6),0 0 0 1px rgba(33,113,162,0.4);">
+      <!-- Foto ocupa todo el recuadro sin espacios -->
+      <img alt="Juan Carlos Neira" src="/img/expositor.png"
+           style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;"/>
+      <!-- Gradiente sutil abajo para fundir con el fondo oscuro -->
+      <div style="position:absolute;bottom:0;left:0;right:0;height:90px;background:linear-gradient(to top,rgba(6,14,26,0.7) 0%,transparent 100%);z-index:1;"></div>
+      <!-- Badge +15 años ENCIMA de la foto, esquina inferior derecha -->
+      <div style="position:absolute;bottom:16px;right:16px;z-index:3;background:rgba(33,113,162,0.92);backdrop-filter:blur(8px);border-radius:10px;padding:8px 14px;display:flex;align-items:center;gap:6px;box-shadow:0 4px 20px rgba(33,113,162,0.5);">
+        <span style="font-size:15px;">🏆</span>
+        <span style="font-size:12px;font-weight:700;color:white;letter-spacing:0.05em;">+15 años</span>
       </div>
-      <!-- Gradiente en la parte inferior para fusionar con el fondo -->
-      <div style="position:absolute;bottom:0;left:0;right:0;height:80px;background:linear-gradient(to top,rgba(6,14,26,0.8) 0%,transparent 100%);"></div>
-      <!-- Badge premium -->
-      <div style="position:absolute;top:14px;right:14px;z-index:3;background:rgba(33,113,162,0.9);backdrop-filter:blur(8px);border-radius:10px;padding:7px 12px;display:flex;align-items:center;gap:5px;box-shadow:0 4px 16px rgba(33,113,162,0.4);">
-        <span style="font-size:14px;">🏆</span>
-        <span style="font-size:11px;font-weight:700;color:white;letter-spacing:0.05em;">+15 años</span>
-      </div>
-      <!-- Borde azul sutil -->
-      <div style="position:absolute;inset:0;border-radius:16px;border:1px solid rgba(33,113,162,0.4);pointer-events:none;z-index:4;"></div>
+      <!-- Borde azul -->
+      <div style="position:absolute;inset:0;border-radius:16px;border:1.5px solid rgba(33,113,162,0.45);pointer-events:none;z-index:4;"></div>
     </div>
 
     <!-- Bio -->
