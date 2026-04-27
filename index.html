@@ -54,7 +54,7 @@ fbq('track', 'PageView');
 <body class="bg-background text-on-surface font-body-md selection:bg-primary-container selection:text-white">
 <nav class="fixed top-0 w-full z-50 bg-[#242A36]/80 backdrop-blur-xl border-b border-white/10 shadow-xl shadow-blue-900/20">
 <div class="flex justify-between items-center w-full px-8 max-w-7xl mx-auto py-2">
-<div class="text-xl font-extrabold tracking-tighter text-white lowercase font-headline-md"><div style="background:rgba(255,255,255,0.08);border-radius:10px;padding:4px 10px;display:inline-flex;align-items:center;"><img alt="itcs² logo" style="height:48px;width:auto;object-fit:contain;" src="/img/logo white JPG.jpg"/></div></div>
+<div class="text-xl font-extrabold tracking-tighter text-white lowercase font-headline-md"><div style="background:rgba(255,255,255,0.08);border-radius:10px;padding:4px 10px;display:inline-flex;align-items:center;"><img alt="itcs² logo" style="height:48px;width:auto;object-fit:contain;" src="/img/logo.png"/></div></div>
 <div class="flex items-center gap-4">
 <a href="#registro" class="bg-primary-container text-white px-6 py-2 rounded-lg font-manrope text-sm font-bold shadow-lg shadow-blue-900/40 active:scale-95 transform transition-transform cursor-pointer">Registrarse</a>
 </div>
@@ -211,21 +211,60 @@ fbq('track', 'PageView');
 </div>
 </section>
 <section class="py-xl px-margin max-w-7xl mx-auto">
-<div class="glass-card rounded-2xl p-lg md:p-xl grid md:grid-cols-[1fr_2fr] gap-lg items-center">
-<div class="relative aspect-square max-w-[300px] mx-auto md:mx-0">
-<div style="border-radius:12px;overflow:hidden;width:100%;height:100%;background:linear-gradient(145deg,#0d1b2a 0%,#1a3450 100%);padding:8px;">
-<img alt="Juan Carlos Neira" style="border-radius:8px;object-fit:cover;width:100%;height:100%;" src="/img/foto juan.png"/>
-</div>
-<div class="absolute -bottom-4 -right-4 bg-secondary-container p-3 rounded-lg shadow-lg">
-<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
-</div>
-</div>
-<div class="space-y-sm">
-<span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest">Conoce a tu Mentor</span>
-<h2 class="font-headline-lg text-headline-lg text-white">Juan Carlos Neira</h2>
-<p class="text-body-lg text-on-surface font-semibold text-primary">Gerente de Transformación Digital - Socio Itcs2</p>
-<p class="text-body-md text-on-surface-variant">Con más de 15 años de experiencia liderando la digitalización de empresas en toda América Latina, Juan ha ayudado a más de 200 empresas a implementar proyectos de tecnología y actualmente a diseñar procesos de automatización, integracion e inteligencia artificial que han redefinido sus modelos de negocio.</p>
-</div>
+<div class="glass-card rounded-2xl overflow-hidden" style="min-height:420px;position:relative;">
+
+  <!-- Fondo corporativo elegante -->
+  <div style="position:absolute;inset:0;background:linear-gradient(135deg,#060e1a 0%,#0d1f35 35%,#112943 60%,#0a1628 100%);"></div>
+  <!-- Luces de ambiente -->
+  <div style="position:absolute;top:-60px;right:60px;width:350px;height:350px;background:radial-gradient(circle,rgba(33,113,162,0.3) 0%,transparent 70%);pointer-events:none;"></div>
+  <div style="position:absolute;bottom:-40px;left:30%;width:250px;height:250px;background:radial-gradient(circle,rgba(143,205,255,0.08) 0%,transparent 70%);pointer-events:none;"></div>
+  <!-- Líneas decorativas sutiles -->
+  <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(143,205,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(143,205,255,0.03) 1px,transparent 1px);background-size:40px 40px;pointer-events:none;"></div>
+
+  <!-- Contenido -->
+  <div style="position:relative;z-index:1;display:grid;grid-template-columns:1fr 2fr;gap:40px;align-items:center;padding:48px 48px;" class="block-expositor">
+
+    <!-- Foto -->
+    <div style="position:relative;display:flex;justify-content:center;">
+      <!-- Marco decorativo detrás -->
+      <div style="position:absolute;top:12px;left:12px;right:-12px;bottom:-12px;border:2px solid rgba(33,113,162,0.4);border-radius:16px;"></div>
+      <!-- Badge premium -->
+      <div style="position:absolute;bottom:-16px;right:-8px;z-index:2;background:#2171a2;border-radius:10px;padding:8px 12px;display:flex;align-items:center;gap:6px;box-shadow:0 8px 24px rgba(33,113,162,0.4);">
+        <span style="font-size:16px;">🏆</span>
+        <span style="font-size:11px;font-weight:700;color:white;letter-spacing:0.05em;">+15 años</span>
+      </div>
+      <!-- Foto -->
+      <div style="border-radius:14px;overflow:hidden;width:260px;height:320px;box-shadow:0 20px 60px rgba(0,0,0,0.5),0 0 0 1px rgba(255,255,255,0.08);">
+        <img alt="Juan Carlos Neira" src="/img/foto juan.png" style="width:100%;height:100%;object-fit:cover;object-position:center top;"/>
+      </div>
+    </div>
+
+    <!-- Bio -->
+    <div style="padding-left:8px;">
+      <span style="display:inline-block;font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:#ffb875;margin-bottom:12px;">Conoce a tu Mentor</span>
+      <h2 style="font-family:Manrope,sans-serif;font-size:2rem;font-weight:800;color:#e4e2e2;margin:0 0 6px;line-height:1.2;">Juan Carlos Neira</h2>
+      <p style="font-family:Manrope,sans-serif;font-size:1rem;font-weight:600;color:#8fcdff;margin:0 0 20px;">Gerente de Transformación Digital · Socio itcs²</p>
+      <p style="font-family:Manrope,sans-serif;font-size:0.95rem;color:#c0c7d0;line-height:1.75;margin:0 0 24px;">Con más de 15 años de experiencia liderando la digitalización de empresas en toda América Latina, Juan ha ayudado a más de 200 empresas a implementar proyectos de tecnología y actualmente a diseñar procesos de automatización, integración e inteligencia artificial que han redefinido sus modelos de negocio.</p>
+      <!-- Estadísticas -->
+      <div style="display:flex;gap:24px;flex-wrap:wrap;">
+        <div style="text-align:center;">
+          <p style="font-size:1.75rem;font-weight:800;color:#8fcdff;margin:0;">200+</p>
+          <p style="font-size:0.75rem;color:#8a919a;margin:2px 0 0;">Empresas</p>
+        </div>
+        <div style="width:1px;background:rgba(255,255,255,0.1);"></div>
+        <div style="text-align:center;">
+          <p style="font-size:1.75rem;font-weight:800;color:#8fcdff;margin:0;">15+</p>
+          <p style="font-size:0.75rem;color:#8a919a;margin:2px 0 0;">Años exp.</p>
+        </div>
+        <div style="width:1px;background:rgba(255,255,255,0.1);"></div>
+        <div style="text-align:center;">
+          <p style="font-size:1.75rem;font-weight:800;color:#8fcdff;margin:0;">LATAM</p>
+          <p style="font-size:0.75rem;color:#8a919a;margin:2px 0 0;">Alcance</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </div>
 </section>
 <section class="py-xl px-margin" id="registro">
@@ -273,7 +312,7 @@ fbq('track', 'PageView');
 </main>
 <footer class="bg-[#242A36] w-full py-12 border-t border-white/5 mt-auto">
 <div class="flex flex-col md:flex-row justify-between items-center px-12 max-w-7xl mx-auto gap-6">
-<div class="text-lg font-bold text-[#2171A2] font-headline-md"><div style="background:rgba(255,255,255,0.08);border-radius:8px;padding:4px 10px;display:inline-flex;align-items:center;"><img alt="itcs² logo" style="height:40px;width:auto;object-fit:contain;" src="/img/logo white JPG.jpg"/></div></div>
+<div class="text-lg font-bold text-[#2171A2] font-headline-md"><div style="background:rgba(255,255,255,0.08);border-radius:8px;padding:4px 10px;display:inline-flex;align-items:center;"><img alt="itcs² logo" style="height:40px;width:auto;object-fit:contain;" src="/img/logo.png"/></div></div>
 <p class="font-manrope text-xs text-slate-500 text-center md:text-left">© 2026 itcs². Transformación Digital para PyMEs en LATAM.</p>
 <div class="flex gap-lg">
 <a class="text-slate-500 hover:text-[#2171A2] transition-colors hover:underline decoration-[#2171A2] underline-offset-4 font-manrope text-xs" href="/privacidad.html">Privacidad</a>
