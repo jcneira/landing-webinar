@@ -62,12 +62,21 @@ n.queue=[];t=b.createElement(e);t.async=!0;
 t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '546308681797733');
-fbq('track', 'PageView');
-fbq('track', 'CompleteRegistration', {
-  content_name: 'Webinar IA & PYMES',
-  status: true,
-});
+// Leer email hasheado de la URL si viene de la landing
+(function() {
+  var params = new URLSearchParams(window.location.search);
+  var emailHash = params.get('eh') || '';
+  var userData = emailHash ? { em: emailHash } : {};
+
+  fbq('init', '546308681797733', userData);
+  fbq('track', 'PageView');
+  fbq('track', 'CompleteRegistration', {
+    content_name: 'Webinar IA & PYMES',
+    status: true,
+    value: 0,
+    currency: 'COP',
+  });
+})();
 </script>
 <noscript><img height="1" width="1" style="display:none"
   src="https://www.facebook.com/tr?id=546308681797733&ev=PageView&noscript=1" alt=""/></noscript>

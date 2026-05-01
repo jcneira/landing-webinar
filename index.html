@@ -454,7 +454,17 @@ fbq('track', 'PageView');
       const redirectUrl = data.whatsapp_url || WHATSAPP_FALLBACK_URL;
       setTimeout(function () {
         // Redirigir a página de gracias pasando el link de WhatsApp como parámetro
-        window.location.href = '/gracias.html?wa=' + encodeURIComponent(redirectUrl);
+        // Hashear el email con SHA-256 antes de pasarlo a la URL
+        const emailRaw = inputEmail.value.trim().toLowerCase();
+        const encoder = new TextEncoder();
+        const data2 = encoder.encode(emailRaw);
+        crypto.subtle.digest('SHA-256', data2).then(function(hashBuffer) {
+          const hashArray = Array.from(new Uint8Array(hashBuffer));
+          const emailHash = hashArray.map(b => b.toString(16).padStart(2,'0')).join('');
+          window.location.href = '/gracias.html?wa=' + encodeURIComponent(redirectUrl) + '&eh=' + emailHash;
+        }).catch(function() {
+          window.location.href = '/gracias.html?wa=' + encodeURIComponent(redirectUrl);
+        });
       }, 1400);
 
     } catch (err) {
