@@ -339,6 +339,19 @@ fbq('track', 'PageView');
     utm_campaign: qs.get('utm_campaign') || '',
   };
 
+  // Capturar Facebook Click ID (fbclid) y construir fbc
+  const fbclid = qs.get('fbclid') || '';
+  const fbc = fbclid
+    ? 'fb.1.' + Date.now() + '.' + fbclid
+    : '';
+
+  // Capturar Facebook Browser ID (fbp) de la cookie si existe
+  const fbp = document.cookie
+    .split(';')
+    .map(c => c.trim())
+    .find(c => c.startsWith('_fbp='))
+    ?.split('=')?.[1] || '';
+
   function showAlert(type, msg) {
     alertBox.className = 'relative z-10 mb-md p-md rounded-xl text-sm font-semibold itcs-alert-' + type;
     alertBox.textContent = msg;
@@ -408,6 +421,9 @@ fbq('track', 'PageView');
       utm_campaign: utms.utm_campaign,
       event_id: eventId,
       event_source_url: window.location.href,
+      fbclid: fbclid,
+      fbc: fbc,
+      fbp: fbp,
     };
 
     try {
